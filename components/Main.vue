@@ -14,9 +14,9 @@
             <img src="/img/image.webp" loading="eager" alt="Create an account" class="border-radius-24px">
           </div>
           <div class="rich-text w-richtext">
-            <h2>Camera</h2>
+            <h2 id="camera">Camera</h2>
             <div class="mg-left">
-              <h4>Canon EOS R7 (1600€)</h4>
+              <h4 id="canon">Canon EOS R7 (1600€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/1.png" alt="Canon EOS R7 (1600€)" />
                 <li>4K/60p</li>
@@ -27,9 +27,9 @@
               </ul>
             </div>
 
-            <h2>Objectif de camera</h2>
+            <h2 id="objectif">Objectif de camera</h2>
             <div class="mg-left">
-              <h4>Sigma 70-200mm f/2.8 DG OS HSM sports (1339€)</h4>
+              <h4 id="sigma">Sigma 70-200mm f/2.8 DG OS HSM sports (1339€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/2.png" alt="Canon EOS R7 (1600€)" />
                 <li>Stabilisation optique intelligente OS</li>
@@ -39,9 +39,9 @@
               </ul>
             </div>
 
-            <h2>Stabilisateur</h2>
+            <h2 id="stabilisateur">Stabilisateur</h2>
             <div class="mg-left">
-              <h4>Osmo Mobile 6 Gris ardoise (129€)</h4>
+              <h4 id="osmo">Osmo Mobile 6 Gris ardoise (129€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/3.png" alt="Canon EOS R7 (1600€)" />
                 <li>Stabilisé sur 3 axes</li>
@@ -51,9 +51,9 @@
               </ul>
             </div>
 
-            <h2>Action cam</h2>
+            <h2 id="action">Action cam</h2>
             <div class="mg-left">
-              <h4>Bundle Osmo Action 4 Standard (269€)</h4>
+              <h4 id="bundle">Bundle Osmo Action 4 Standard (269€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/4.png" alt="Canon EOS R7 (1600€)" />
                 <nuxt-img src="/img/5.png" alt="Canon EOS R7 (1600€)" />
@@ -63,21 +63,21 @@
               </ul>
             </div>
             <div class="mg-left">
-              <h4>FitStill Boîtier étanche (18,98€)</h4>
+              <h4 id="boitier">FitStill Boîtier étanche (18,98€)</h4>
               <ul>
                 <nuxt-img src="/img/6.png" alt="Canon EOS R7 (1600€)" />
               </ul>
             </div>
             <div class="mg-left">
-              <h4>NEEWER 50 en 1 Kit d'accessoires pour Caméra d'Action (28,98€)</h4>
+              <h4 id="neewer">NEEWER 50 en 1 Kit d'accessoires pour Caméra d'Action (28,98€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/7.png" alt="Canon EOS R7 (1600€)" />
               </ul>
             </div>
 
-            <h2>Disque dur / Carte SD</h2>
+            <h2 id="disque">Disque dur / Carte SD</h2>
             <div class="mg-left">
-              <h4>Samsung SSD Externe T7 2 To, Gris titane (150,34€)</h4>
+              <h4 id="samsung">Samsung SSD Externe T7 2 To, Gris titane (150,34€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/8.png" alt="Canon EOS R7 (1600€)" />
                 <li>Pour stocker toutes nos images et vidéos HD</li>
@@ -87,7 +87,7 @@
               </ul>
             </div>
             <div class="mg-left">
-              <h4>SanDisk 128 Go Extreme PRO microSDXC carte + adaptateur SD (22,38€)</h4>
+              <h4 id="sandisk">SanDisk 128 Go Extreme PRO microSDXC carte + adaptateur SD (22,38€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/9.png" alt="Canon EOS R7 (1600€)" />
                 <li>Vitesses de déchargement de carte allant jusqu'à 200 Mo/s</li>
@@ -95,9 +95,9 @@
               </ul>
             </div>
 
-            <h2>Trépied</h2>
+            <h2 id="trepied">Trépied</h2>
             <div class="mg-left">
-              <h4>VICTIV 74" Camera Tripod (36,99€)</h4>
+              <h4 id="vivit">VICTIV 74" Camera Tripod (36,99€)</h4>
               <ul role="list">
                 <nuxt-img src="/img/10.png" alt="Canon EOS R7 (1600€)" />
                 <li>Trépied de 18cm de haut et compact</li>

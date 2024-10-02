@@ -1,5 +1,68 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 
+interface SidebarItem {
+  title: string
+  href: string
+  subItems?: SidebarItem[]
+  isOpen?: boolean
+}
+
+const sidebarItems = ref<SidebarItem[]>([
+  {
+    title: 'Camera',
+    href: '#camera',
+    isOpen: false,
+    subItems: [
+      { title: 'Canon EOS R7', href: '#canon' },
+    ],
+  },
+  {
+    title: 'Objectif de caméra',
+    href: '#objectif',
+    isOpen: false,
+    subItems: [
+      { title: 'Sigma 70-200mm', href: '#sigma' },
+    ],
+  },
+  {
+    title: 'Stabilisateur',
+    href: '#stabilisateur',
+    isOpen: false,
+    subItems: [
+      { title: 'Osmo Mobile 6 Gris ardoise', href: '#osmo' },
+    ],
+  },
+  {
+    title: 'Action cam',
+    href: '#action',
+    isOpen: false,
+    subItems: [
+      { title: 'Bundle Osmo Action 4 Standard', href: '#bundle' },
+      { title: 'FitStill Boîtier étanche', href: '#boitier' },
+      { title: 'NEEWER 50', href: '#neewer' },
+    ],
+  },
+  {
+    title: 'Disque dur / Carte SD',
+    href: '#disque',
+    isOpen: false,
+    subItems: [
+      { title: 'Samsung SSD Externe', href: '#samsung' },
+      { title: 'SanDisk 128 Go', href: '#sandisk' },
+    ],
+  },
+  {
+    title: 'Trépied',
+    href: '#trepied',
+    isOpen: false,
+    subItems: [{ title: 'VICTIV 74”', href: '#victiv' }],
+  },
+])
+
+const toggleSubItems = (item: SidebarItem) => {
+  item.isOpen = !item.isOpen
+}
 </script>
 
 <template>
@@ -24,69 +87,23 @@
             <div class="sidebar-nav-menu">
               <div>
                 <div class="link-sidebar-wrapper first" style="margin-bottom: 12px"></div>
-                <div class="link-sidebar-wrapper first" style="margin-bottom: 0; border: none">
-                  <a href="/" class="link-sidebar">Portfolio V2</a>
+                <div class="link-sidebar-wrapper first" style="margin-bottom: 0; border-bottom: 0px">
+                  <a href="/" class="link-sidebar" style="font-size: 18px">Portfolio V2</a>
                 </div>
-                <div class="m-1">
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Camera</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">Canon EOS R7</a>
-                    </div>
-                  </div>
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Objectif de camera</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">Sigma 70-200mm</a>
-                    </div>
-                  </div>
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Stabilisateur</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">Osmo Mobile 6 Gris ardoise</a>
-                    </div>
-                  </div>
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Action cam</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">Bundle Osmo Action 4 Standard</a>
-                    </div>
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">FitStill Boîtier étanche</a>
-                    </div>
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">NEEWER 50</a>
-                    </div>
-                  </div>
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Disque dur / Carte SD</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">Samsung SSD Externe</a>
-                    </div>
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">SanDisk 128 Go</a>
-                    </div>
-                  </div>
-                  <div class="link-sidebar-wrapper first" style="border: none">
-                    <a href="/" class="link-sidebar">Trépied</a>
-                  </div>
-                  <div class="m-2">
-                    <div class="link-sidebar-wrapper first" style="border: none">
-                      <a href="/" class="link-sidebar">VICTIV 74”</a>
-                    </div>
-                  </div>
-                </div>
+                <div style="margin-left: 10px">
+                  <div v-for="item in sidebarItems" :key="item.title" class="link-sidebar-wrapper" style="border: none">
+                    <a :href="item.href" class="link-sidebar" @click.prevent="toggleSubItems(item)">
+                      {{ item.title }}
+                      <nuxt-img src="/img/chevron.svg" class="chevron" style="width: 20px" :class="{ 'rotate': item.isOpen }">▼</nuxt-img>
 
+                    </a>
+                    <div v-if="item.subItems && item.isOpen" class="m-2">
+                      <div v-for="subItem in item.subItems" :key="subItem.title" class="link-sidebar-wrapper" style="border: none">
+                        <a :href="subItem.href" class="link-sidebar">{{ subItem.title }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +111,6 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -102,11 +118,16 @@
   padding: 8px 0;
 }
 
-.m-1 {
-  margin-left: 10px;
-}
-
 .m-2 {
   margin-left: 20px;
+}
+
+.rotate {
+  transform: rotate(0deg)!important;
+}
+
+.chevron {
+  transform: rotate(-90deg);
+  transition: all .2s ease-in-out;
 }
 </style>
